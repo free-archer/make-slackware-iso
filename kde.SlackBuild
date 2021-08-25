@@ -71,9 +71,15 @@ pkgbase() {
   echo $PKGRETURN
 }
 
+#+archer
+#copi aplicationlist
+cp -f ./applications slackware64-current/source/kde/kde/modules/applications
+
 # Set initial variables:
 cd slackware64-current/source/kde/kde/
 #cd $(dirname $0); 
+#-archer
+
 CWD=$(pwd)
 
 if [ -z "$TMP" ]; then
@@ -540,11 +546,9 @@ KDEMODS=" \
   frameworks \
   plasma \
   plasma-extra \
-  applications:libktorrent \
   applications \
   applications-extra \
   "  
-  #telepathy \
 
 # Allow for specification of individual packages to be built:
 if [ -z "$1" ]; then
