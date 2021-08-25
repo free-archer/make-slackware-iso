@@ -42,6 +42,8 @@ GRACETME=${GRACETME:-"10"} # grace time to change your mind before build starts.
 SKIPBUILT=${SKIPBUILT:-"no"} # skip building already built packages.
 EXITFAIL=${EXITFAIL:-"yes"} # exit if a package fails to build.
 
+UPGRADE=${UPGRADE:-"no"} # upgrade package after successful build.+archer
+
 KDEGITURI="git://anongit.kde.org"
 
 pkgbase() {
@@ -70,7 +72,9 @@ pkgbase() {
 }
 
 # Set initial variables:
-cd $(dirname $0) ; CWD=$(pwd)
+cd slackware64-current/source/kde/kde/
+#cd $(dirname $0); 
+CWD=$(pwd)
 
 if [ -z "$TMP" ]; then
   TMP=/tmp
@@ -85,6 +89,9 @@ fi
 mkdir -p $TMP $SLACK_KDE_BUILD_DIR
 
 # Set up a few useful functions:
+
+echo "SLACK_KDE_BUILD_DIR=$SLACK_KDE_BUILD_DIR"
+
 
 extract_archive() {
   # Find the archive first:
@@ -260,6 +267,7 @@ build_mod_pkg () {
     fi
   fi
   PKG=${SLACK_KDE_BUILD_DIR}/${kde_module}/package-${kde_module}
+  echo "PKG=$PKG"
   rm -rf $PKG
   mkdir -p $PKG
   ( for PKGNAME in $(cat $kde_module |grep -v "^$" |grep -v "^ *#") ; do
@@ -526,6 +534,16 @@ KDEMODS=" \
   applications-extra \
   applications:umbrello \
   "
+#+archer
+KDEMODS=" \
+  kde4 \
+  frameworks \
+  plasma \
+  plasma-extra \
+  applications:libktorrent \
+  applications \
+  applications-extra \
+  "  
   #telepathy \
 
 # Allow for specification of individual packages to be built:
@@ -551,10 +569,11 @@ do
   deterministic_build $module
   if [ $? = 0 ]; then
     # Move the created packages up into the KDE build directory:
-    mv ${SLACK_KDE_BUILD_DIR}/$(echo $module |cut -f1 -d:)/*.t?z ${SLACK_KDE_BUILD_DIR}/ 2> /dev/null
+    #mv ${SLACK_KDE_BUILD_DIR}/$(echo $module |cut -f1 -d:)/*.t?z ${SLACK_KDE_BUILD_DIR}/ 2> /dev/null#-archer
     if [ "$CLEANUP" = "yes" -o "$CLEANUP" = "YES" ]; then
       # Clean out package and build directories:
-      rm -rf ${SLACK_KDE_BUILD_DIR}/$(echo $module |cut -f1 -d:)
+      #rm -rf ${SLACK_KDE_BUILD_DIR}/$(echo $module |cut -f1 -d:)#-archer
+      echo "skip build"
     fi
   else
     if [ -z "$PRINT_PACKAGE_NAME" ]; then
