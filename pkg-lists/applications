@@ -1,6 +1,5 @@
 #add
 addm
-
 # https://community.kde.org/Applications/17.12_Release_Notes
 #
 # Some of the kdegraphics needs to be compiled first:
@@ -10,12 +9,10 @@ libkexiv2
 libkdcraw
 libksane
 gwenview
-
 # Not currently packaging due to deps needed for kaccounts-integration, and
 # more deps needed for those deps. Might check into it again later...
 #kaccounts-integration
 #kaccounts-providers
-
 # kdebase:
 kio-extras
 kio-gdrive
@@ -25,7 +22,6 @@ kdialog
 keditbookmarks
 kfind
 #konqueror
-
 # kdeutils:
 ark
 baloo-widgets
@@ -41,10 +37,8 @@ ktimer
 khelpcenter
 kwalletmanager
 sweeper
-
 # dolphin needs to pick up baloo5-widgets:
 dolphin
-
 # kdesdk:
 kdebugsettings
 kapptemplate
@@ -61,7 +55,6 @@ kompare
 lokalize
 poxml
 umbrello
-
 # Rest of kdegraphics:
 kdegraphics-mobipocket
 okular
@@ -73,12 +66,10 @@ kruler
 spectacle
 svgpart
 kirigami-gallery
-
 # kdeaccessibility:
 #kmouth
 #kmousetool
 #kmag
-
 # kdemultimedia:
 libkcddb
 libkcompactdisc
@@ -91,7 +82,6 @@ kwave
 k3b
 kamoso
 elisa
-
 # kdenetwork:
 kdenetwork-filesharing
 zeroconf-ioslave
@@ -99,27 +89,19 @@ kget
 kopete
 krdc
 krfb
-
 # kdeadmin:
 kcron
 ksystemlog
-
-
 # Needs to come after marble (obsolete, removed):
 #libkgeomap
-
 # Needs ffmpeg and dvdauthor to be really useful:
 kdenlive
-
 # kdewebdev remnant:
 #kimagemapeditor
-
 # New in 19.08:
 yakuake
-
 # New in 20.04:
 kdeconnect-kde
-
 # New in 20.12.0:
 markdownpart
 kpublictransport
@@ -131,12 +113,8 @@ libktorrent
 ktorrent
 kpmcore
 partitionmanager
-
 # New in 21.08.0:
 #skanlite
-
 # applications-extra
 digikam
 krita
-
-

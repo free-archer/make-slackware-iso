@@ -2,3 +2,4 @@ slackware64-current
 *.iso
 *.txt
 *~
+tmp/
