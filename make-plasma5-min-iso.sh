@@ -1,12 +1,13 @@
 #!/bin/bash
 
-cp setpkg-cutefish slackware64-current/isolinux/setpkg
+cp setpkg-cutefish-kdemin slackware64-current/isolinux/setpkg
 cp message.txt slackware64-current/isolinux/
+
 
 xorriso -as mkisofs \
   -iso-level 4 \
   -full-iso9660-filenames \
-  -R -J -A "Slackware  CuteFishOS" \
+  -R -J -A "Slackware Install CutefishOS Edition" \
   -hide-rr-moved \
   -v -d -N \
   -eltorito-boot isolinux/isolinux.bin \
@@ -16,7 +17,13 @@ xorriso -as mkisofs \
   -eltorito-alt-boot \
   -e isolinux/efiboot.img \
   -no-emul-boot -isohybrid-gpt-basdat \
-  -m 'source' \
+  -m "source" \
+  -m "kde" \
+  -m "xfce" \
+  -m "xap" \
+  -m "y" \
+  -m "t" \
+  -m "tcl" \
   -volid "SlackDVD" \
-  -output ./slackware-cutefish-dvd.iso \
+  -output ./slackware-cutefish-dvd-plasma5min.iso \
   ./slackware64-current

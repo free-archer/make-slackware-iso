@@ -1,7 +1,13 @@
+#!/bin/bash
+
+cp setpkg slackware64-current/isolinux/
+cp message.txt slackware64-current/isolinux/
+
+
 xorriso -as mkisofs \
   -iso-level 4 \
   -full-iso9660-filenames \
-  -R -J -A "Slackware Install cutefish" \
+  -R -J -A "Slackware Install CutefishOS Edition" \
   -hide-rr-moved \
   -v -d -N \
   -eltorito-boot isolinux/isolinux.bin \
@@ -13,5 +19,5 @@ xorriso -as mkisofs \
   -no-emul-boot -isohybrid-gpt-basdat \
   -m 'source' \
   -volid "SlackDVD" \
-  -output ./slackware-cutefish-dvd-ext.iso \
+  -output ./slackware-cutefish-dvd.iso \
   ./slackware64-current

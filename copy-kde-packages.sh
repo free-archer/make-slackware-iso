@@ -30,13 +30,13 @@ do
   for package in `cat $pkglist`
   do
     echo $package
-    packagefile=$(find $CWD/slackware64-current/slackware64/kde/ -name $package-*.txz)
+    packagefile=$(find $CWD/slackware64-current/slackware64/kde/ -name $package-*)
     echo "finded $packagefile"
 
     if [[ ! -z $packagefile ]]
     then
-      mkdir -p $CWD/slackware64-current/slackware64/kde-$pkglist
-      cp $packagefile $CWD/slackware64-current/slackware64/kde-$pkglist
+      mkdir -p $CWD/slackware64-current/slackware64/kde-$pkglist/
+      cp $packagefile $CWD/slackware64-current/slackware64/kde-$pkglist/
     fi
 
   done
