@@ -10,6 +10,7 @@ CWD=$(pwd)
 TMP=/tmp/
 OUTPUT=$CWD/pkg/extra/
 PKG=$TMP/package-$PRGNAM
+PKGNAME=$OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
 
 rm -rf $PKG
 mkdir -p $PKG
@@ -37,4 +38,5 @@ multitextor:
 multitextor: ' > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $PKGNAME
+chown archer:users $PKGNAME

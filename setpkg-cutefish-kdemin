@@ -23,13 +23,13 @@ ENTER key when you are finished." \
 "E" "GNU Emacs" on "The E series contains the GNU Emacs advanced real-time display editor." \
 "F" "FAQ lists, HOWTO documentation" on "The F series contains essential documentation for Linux system administrators." \
 "K" "Linux kernel source" on "The K series contains the source code for the Linux kernel." \
-"kde-applications" "The KDE Plasma Desktop" on "The KDE series contains the KDE Plasma Desktop for X." \
-"kde-frameworks" "The KDE Plasma Desktop" on "The KDE series contains the KDE Plasma Desktop for X." \
-"kde-plasma" "The KDE Plasma Desktop" on "The KDE series contains the KDE Plasma Desktop for X." \
+"kde-applications" "The KDE Plasma Desktop applications" on "The KDE series contains the KDE Plasma Desktop for X." \
+"kde-frameworks" "The KDE Plasma Desktop base frameworks" on "The KDE series contains the KDE Plasma Desktop for X." \
+"kde-plasma" "The KDE Plasma Desktop base packages" on "The KDE series contains the KDE Plasma Desktop for X." \
 "L" "System Libraries (needed by KDE, GNOME, X, and more)" on "The L series contains important libraries needed by the rest of the system." \
 "N" "Networking (TCP/IP, UUCP, Mail, News)" on "The N series contains network related clients and servers." \
 "X" "X Window System" on "This series contains X, the window system (or GUI) used by Linux." \
-"cutefish" "CutefishOS" on "The goal is to create a better experience Linux desktop OS" \
+"cutefish" "CutefishOS packages" on "The goal is to create a better experience Linux desktop OS" \
 "extra" "Extra packages" on "Extra packages" \
 2> $TMP/SeTSERIES
 if [ ! $? = 0 ]; then
