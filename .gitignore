@@ -3,3 +3,4 @@ slackware64-current
 *.txt
 *~
 tmp/
+pkg/

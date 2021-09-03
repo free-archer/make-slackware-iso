@@ -1,0 +1,40 @@
+#!/bin/sh
+
+PRGNAM=slackware-cutefish-settings
+VERSION=${VERSION:-0.1}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_archer}
+ARCH="noarch"
+
+CWD=$(pwd)
+TMP=/tmp/
+OUTPUT=$CWD/pkg/extra/
+PKG=$TMP/package-$PRGNAM
+
+rm -rf $PKG
+mkdir -p $PKG
+
+mkdir -p /$PKG/etc/
+cp -r $CWD/$PRGNAM/skel/ $PKG/etc/
+
+cd $PKG
+
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+#prepage pkg
+
+mkdir -p $PKG/install
+cp $CWD/$PRGNAM/doinst.sh $PKG/install/
+
+echo '           |-----handy-ruler------------------------------------------------------|
+multitextor: Slackware Cutefish Edition Settings
+multitextor:
+multitextor: ' > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
