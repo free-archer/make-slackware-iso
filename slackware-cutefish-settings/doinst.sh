@@ -1,6 +1,6 @@
 #inittab set runlavel 4
-RUNLEVEL=4
-sed -i /etc/inittab -e "s/\(id:\).\(:initdefault:\)/\1${RUNLEVEL}\2/"
+#RUNLEVEL=4
+#sed -i /etc/inittab -e "s/\(id:\).\(:initdefault:\)/\1${RUNLEVEL}\2/"
 
 #gxkb
 #cp /usr/share/applications/gxkb.desktop /etc/xdg/autostart/
