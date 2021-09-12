@@ -113,6 +113,8 @@ Alternate keys may also be used: '+', '-', and TAB." 18 72 9 \
 "SELECT" "Select categories of software to install" \
 "INSTALL" "Install selected software" \
 "CONFIGURE" "Reconfigure your Linux system" \
+"SETRUNLEVEL" "Set runlevel 4 in a inittab" \
+"RUSSIFICATION" "Run a russification script" \
 "EXIT" "Exit Slackware Linux Setup" 2> $TMP/hdset
  if [ ! $? = 0 ]; then
   rm -f $TMP/hdset $TMP/SeT*
@@ -120,6 +122,17 @@ Alternate keys may also be used: '+', '-', and TAB." 18 72 9 \
  fi
  MAINSELECT="`cat $TMP/hdset`"
  rm $TMP/hdset
+
+#+archer
+if [ "$MAINSELECT" = "SETRUNLEVEL" ]; then
+  RUNLEVEL=4
+  sed -i $T_PX/etc/inittab -e "s/\(id:\).\(:initdefault:\)/\1${RUNLEVEL}\2/"
+fi
+
+if [ "$MAINSELECT" = "RUSSIFICATION" ]; then
+  chroot ${T_PX} /usr/sbin/russification
+fi
+#-archer
 
  # Start checking what to do. Some modules may reset MAINSELECT to run the
  # next item in line.
