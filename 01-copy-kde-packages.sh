@@ -8,8 +8,8 @@ set -e
 
 CWD=$(pwd)
 mkdir -p tmp
-TMP=$CWD/tmp
-rm -d -r $TMP
+TMP=$CWD/tmp/pkglist
+rm -d -r -f $TMP/
 
 echo $TMP
 mkdir $TMP
@@ -27,6 +27,10 @@ for pkglist in *
 do
   echo $pkglist
 
+  kdedist=$CWD/slackware64-current/slackware64/kde-$pkglist/
+  rm -rf $kdedist
+  mkdir -p $kdedist
+
   for package in `cat $pkglist`
   do
     echo $package
@@ -35,8 +39,7 @@ do
 
     if [[ ! -z $packagefile ]]
     then
-      mkdir -p $CWD/slackware64-current/slackware64/kde-$pkglist/
-      cp $packagefile $CWD/slackware64-current/slackware64/kde-$pkglist/
+      cp $packagefile $kdedist
     fi
 
   done
